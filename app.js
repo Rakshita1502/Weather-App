@@ -26,13 +26,19 @@ https.get(url,function(response){
     //const location=weatherData.name;
     const temp=weatherData.main.temp;
     const description=weatherData.weather[0].description;
+    const pressure=weatherData.main.pressure;
+    const humidity=weatherData.main.humidity;
+    const windSpeed=weatherData.wind.speed;
     const icon=weatherData.weather[0].icon;
-    const imageURL="https://openweathermap.org/img/wn/"+ icon +"@2x.png"
+    const imageUrl="https://openweathermap.org/img/wn/"+ icon +"@2x.png"
   
    
     res.write("<h1>the temperature in "+ query+" is "+temp+" degrees Celcious</h1>")
-    res.write("<p>The weather is "+description+"</p>")
-    res.write("<img src="+imageURL+">");
+    res.write("<h2>The weather is "+description+"</h2>")
+    res.write("<h2> the pressure is "+ pressure +" hPa</h2>")
+    res.write("<h2>the humidity is "+ humidity +" %</h2>")
+    res.write("<h2> the wind speed is "+ windSpeed +" meter per second</h2>")
+    res.write("<img src="+imageUrl+">");
     res.send();
   })
 });
